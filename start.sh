@@ -1,27 +1,18 @@
-#!/bin/bash
-
-#sleep 20
-
-DIR=~/.conky/
-
+#!/bin/bash 
 
 launch() {
-    RUN=`ps aux | grep conky | grep $1`
-
-    if [ -z "$RUN" ]; then
-        conky -c $DIR$1 -q &
-    fi
+    conky -c $DIR/$1 -q &
 }
 
-#launch "clockrc"
-#launch "systemrc"
+set -x
+
+DIR=$(dirname "$BASH_SOURCE")
+
+pkill -9 conky
+
 launch "cpurc"
 launch "memoryrc"
 launch "diskrc"
 launch "networkrc"
-#launch "others"
-#launch "gpurc"
 launch "bateryrc"
-#launch "calrc"
-
 
