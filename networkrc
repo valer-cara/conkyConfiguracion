@@ -35,17 +35,17 @@ conky.config = {
 
 conky.text = [[
 ${color1}${font Sans:normal:size=9}NETWORK ${hr 2}$color$font
-State:${alignr} ${if_existing /sys/class/net/wlp2s0/operstate up}${color FFFFFF}ONLINE${else}${color red}OFFLINE${endif}$color
+State:${alignr} ${if_existing /sys/class/net/wlp58s0/operstate up}${color FFFFFF}ONLINE${else}${color red}OFFLINE${endif}$color
 ISP: ${alignr} ${execi 6000 curl ipinfo.io/org}
 #Locale: ${alignr} ${execi 6000 curl ipinfo.io/city}, ${execi 6000 curl ipinfo.io/region}, ${execi 6000 curl ipinfo.io/country}
 #${alignr} ${execi 6000 curl ipinfo.io/loc}
-Local IP: ${alignr} ${addr wlp2s0}
+Local IP: ${alignr} ${addr wlp58s0}
 #Public IP: ${alignr} ${execi 600 wget http://ipinfo.io/ip -qO -}
 #Total connections: ${alignr}${tcp_portmon 1 65535 count}
 #Ping to 192.168.1.1: $alignr ${texeci 15 output=$(ping -c 10 192.168.1.1); avg=$(printf "%0.1f" `echo $output | awk -F '/' 'END {print $5}'` | sed 's/,/./'); mdev=$(printf "%0.1f" `echo $output | awk -F '/' 'END {print $7}' | sed 's/ .*//'` | sed 's/,/./'); echo $avg ± $mdev ms}
 #Ping to 8.8.8.8: $alignr ${texeci 15 output=$(ping -c 10 8.8.8.8); avg=$(printf "%0.1f" `echo $output | awk -F '/' 'END {print $5}'` | sed 's/,/./'); mdev=$(printf "%0.1f" `echo $output | awk -F '/' 'END {print $7}' | sed 's/ .*//'` | sed 's/,/./'); echo $avg ± $mdev ms}
-Down: ${downspeed wlp2s0} / s ${alignr} Up: ${upspeed wlp2s0} / s
-${downspeedgraph wlp2s0 25,200 ffffff ffffff} ${alignr}${upspeedgraph wlp2s0 25,200 ffffff ffffff}
-Total: ${totaldown wlp2s0} ${alignr}Total: ${totalup wlp2s0}
+Down: ${downspeed wlp58s0} / s ${alignr} Up: ${upspeed wlp58s0} / s
+${downspeedgraph wlp58s0 25,200 ffffff ffffff} ${alignr}${upspeedgraph wlp58s0 25,200 ffffff ffffff}
+Total: ${totaldown wlp58s0} ${alignr}Total: ${totalup wlp58s0}
 #Inbound: ${tcp_portmon 1 32767 count} Outbound: ${tcp_portmon 32768 61000 count}${alignr}
 ]];
